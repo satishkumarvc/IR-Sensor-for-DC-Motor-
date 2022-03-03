@@ -1,0 +1,40 @@
+// C++ code
+int motorPin1 =11;
+int motorPin2 =10;
+int motorPin3 =8;
+int motorPin4 =9;
+
+int IRsensor = 7;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(motorPin1, OUTPUT);
+  pinMode(motorPin2, OUTPUT);
+  pinMode(motorPin3, OUTPUT);
+  pinMode(motorPin4, OUTPUT);
+  pinMode(IRsensor,INPUT);
+}
+
+void loop()
+{
+  
+int value = digitalRead(IRsensor);
+Serial.println(value);
+ if(value==1)
+ {
+digitalWrite(motorPin3,LOW);
+digitalWrite(motorPin4,HIGH);
+
+digitalWrite(motorPin1,LOW);
+digitalWrite(motorPin2,LOW);
+}
+  else
+  {
+digitalWrite(motorPin3,LOW);
+digitalWrite(motorPin4,LOW);
+
+digitalWrite(motorPin1,LOW);
+digitalWrite(motorPin2,LOW); 
+}
+  delay(2000);
+}
